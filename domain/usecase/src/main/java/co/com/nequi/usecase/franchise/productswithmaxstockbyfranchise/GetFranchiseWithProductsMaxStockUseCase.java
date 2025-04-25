@@ -9,6 +9,8 @@ import co.com.nequi.model.product.gateways.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 public class GetFranchiseWithProductsMaxStockUseCase {
 
@@ -24,11 +26,10 @@ public class GetFranchiseWithProductsMaxStockUseCase {
                         branchRepository.getAllByFranchise(id)
                                 .flatMap(branch ->
                                         productRepository.getTopByBranchIdOrderByStockDesc(branch.getId())
-                                                .collectList()  // Collect products into a list
                                                 .map(products -> {
-                                                    branch.setProducts(products);
+                                                    branch.setProducts(List.of(products));
                                                     return branch;
-                                                })
+                                                }).defaultIfEmpty(branch)
                                 )
                                 .collectList()
                                 .map(branches -> {

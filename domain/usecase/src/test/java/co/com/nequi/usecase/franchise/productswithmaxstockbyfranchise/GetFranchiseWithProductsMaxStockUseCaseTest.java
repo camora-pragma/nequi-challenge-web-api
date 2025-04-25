@@ -53,7 +53,7 @@ class GetFranchiseWithProductsMaxStockUseCaseTest {
         // Arrange
         when(franchiseRepository.getFranchiseById(1L)).thenReturn(Mono.just(franchise));
         when(branchRepository.getAllByFranchise(1L)).thenReturn(Flux.just(branch));
-        when(productRepository.getTopByBranchIdOrderByStockDesc(100L)).thenReturn(Flux.just(product));
+        when(productRepository.getTopByBranchIdOrderByStockDesc(100L)).thenReturn(Mono.just(product));
 
         // Act
         Mono<Franchise> result = useCase.apply(1L);

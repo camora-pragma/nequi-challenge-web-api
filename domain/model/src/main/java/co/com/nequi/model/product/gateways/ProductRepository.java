@@ -9,5 +9,5 @@ public interface ProductRepository {
     Mono<Product> updateProductStock(Product product);
     Mono<Boolean> deleteProductByBranch(Long id, Long branchId);
     Mono<Product> getProductById(Long id);
-    Flux<Product> getTopByBranchIdOrderByStockDesc(Long id);
+    Mono<Product> getTopByBranchIdOrderByStockDesc(Long id);
 }

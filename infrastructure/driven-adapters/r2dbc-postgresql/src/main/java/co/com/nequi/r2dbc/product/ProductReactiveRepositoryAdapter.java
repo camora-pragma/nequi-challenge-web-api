@@ -45,7 +45,7 @@ public class ProductReactiveRepositoryAdapter extends ReactiveAdapterOperations<
     }
 
     @Override
-    public Flux<Product> getTopByBranchIdOrderByStockDesc(Long id) {
+    public Mono<Product> getTopByBranchIdOrderByStockDesc(Long id) {
         return this.repository.findTopByBranchIdOrderByStockDesc(id).map(this::toEntity);
     }
 }

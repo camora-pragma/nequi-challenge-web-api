@@ -92,7 +92,7 @@ class ProductReactiveRepositoryAdapterTest {
         productData.setStock(999);
         productData.setName("Top product");
 
-        when(repository.findTopByBranchIdOrderByStockDesc(branchId)).thenReturn(Flux.just(productData));
+        when(repository.findTopByBranchIdOrderByStockDesc(branchId)).thenReturn(Mono.just(productData));
         when(mapper.mapBuilder(productData, Product.ProductBuilder.class)).thenReturn(Product.builder().id(1L).name("Top product").stock(999));
 
         StepVerifier.create(adapter.getTopByBranchIdOrderByStockDesc(branchId))

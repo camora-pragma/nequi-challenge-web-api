@@ -8,5 +8,5 @@ import reactor.core.publisher.Mono;
 
 public interface ProductDataRepository extends ReactiveCrudRepository<ProductData, Long>, ReactiveQueryByExampleExecutor<ProductData> {
     Mono<Void> deleteByIdAndBranchId(Long id, Long branchId);
-    Flux<ProductData> findTopByBranchIdOrderByStockDesc(Long branchId);
+    Mono<ProductData> findTopByBranchIdOrderByStockDesc(Long branchId);
 }
