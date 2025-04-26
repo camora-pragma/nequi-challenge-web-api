@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=a6dcb41e-6b2e-4a47-b9d1
+      - POSTGRES_USER=NEQUI_ADMIN
+      - POSTGRES_DB=nequi_challenge
