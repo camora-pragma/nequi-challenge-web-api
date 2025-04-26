@@ -8,6 +8,9 @@ resource "aws_security_group" "alb" {
     to_port         = 80
     protocol        = "tcp"
     security_groups = var.security_groups
+    cidr_blocks = [
+      "10.0.0.0/16"
+    ]
   }
 
   egress {
@@ -20,10 +23,10 @@ resource "aws_security_group" "alb" {
 
 resource "aws_lb" "main" {
   name               = "${var.project_name}-alb"
-  internal           = false
+  internal           = true
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb.id]
-  subnets            = var.public_subnets
+  subnets            = var.private_subnets
 
   enable_deletion_protection = false
 

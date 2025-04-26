@@ -13,7 +13,7 @@ terraform {
 }
 
 module "vpc" {
-  source = "modules/vpc"
+  source = "./modules/vpc"
 
   vpc_cidr             = var.vpc_cidr
   availability_zones   = var.availability_zones
@@ -21,13 +21,13 @@ module "vpc" {
 }
 
 module "iam" {
-  source = "modules/iam"
+  source = "./modules/iam"
 
   project_name = var.project_name
 }
 
 module "secrets" {
-  source = "modules/secrets"
+  source = "./modules/secrets"
 
   project_name  = var.project_name
   db_user       = var.db_user
@@ -39,7 +39,7 @@ module "secrets" {
 }
 
 module "ecs" {
-  source = "modules/ecs"
+  source = "./modules/ecs"
 
   project_name         = var.project_name
   vpc_id               = module.vpc.vpc_id
@@ -55,16 +55,16 @@ module "ecs" {
 }
 
 module "alb" {
-  source = "modules/alb"
+  source = "./modules/alb"
 
   project_name    = var.project_name
   vpc_id          = module.vpc.vpc_id
-  public_subnets  = module.vpc.public_subnets
+  private_subnets  = module.vpc.private_subnets
   security_groups = [module.api_gateway.api_gateway_security_group_id]
 }
 
 module "api_gateway" {
-  source = "modules/api-gateway"
+  source = "./modules/api-gateway"
 
   project_name      = var.project_name
   vpc_id            = module.vpc.vpc_id

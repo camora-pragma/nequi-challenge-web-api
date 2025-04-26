@@ -8,12 +8,14 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "public_subnets" {
-  description = "IDs of the public subnets"
-  type        = list(string)
-}
+
 
 variable "security_groups" {
   description = "Security groups that can access the ALB"
+  type        = list(string)
+}
+
+variable "private_subnets" {
+  description = "IDs of the public subnets"
   type        = list(string)
 }
