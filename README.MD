@@ -217,6 +217,16 @@ terraform apply
 
 ## 🚀 Endpoints de la API
 
+---
+
+### **URL de la aplicación en producción**
+
+Puedes acceder a la aplicación en producción utilizando la siguiente URL:
+
+[https://xeuoinl7g3.execute-api.us-east-1.amazonaws.com/api/v1/franchise/1/branches/products/max-stock](https://xeuoinl7g3.execute-api.us-east-1.amazonaws.com/api/v1/franchise/1/branches/products/max-stock)
+
+---
+
 A continuación se presentan los principales endpoints de la API para gestionar franquicias, sucursales y productos:
 
 ### **POST /api/v1/franchise**
@@ -247,14 +257,6 @@ Elimina un producto de una sucursal específica.
 ### **PUT /api/v1/product/{productId}**
 Actualiza la información de un producto específico.
 
----
 
-### **URL de la aplicación en producción**
-
-Puedes acceder a la aplicación en producción utilizando la siguiente URL:
-
-[https://xeuoinl7g3.execute-api.us-east-1.amazonaws.com/api/v1/franchise/1/branches/products/max-stock](https://xeuoinl7g3.execute-api.us-east-1.amazonaws.com/api/v1/franchise/1/branches/products/max-stock)
-
----
 
 
